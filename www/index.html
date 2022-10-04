@@ -25,11 +25,7 @@
   <input type="email" id="login" placeholder="Email..."/> <br> <br>
   <input type="password" id="senha" placeholder="Senha..."/> <br>
 <br> <button class="bn632-hover bn22" id="btn"> Entrar </button>
- <div class="link">
-         <div class="link1"> <br>
-            Esqueceu sua senha?
-            <a href="#paralogin"> Aperte aqui </a>
-            </div>
+ 
 </div>
 
 <script>
@@ -41,7 +37,8 @@
     let formData = new FormData();
     formData.append('login', `${login.value}`);
     formData.append('senha', `${senha.value}`);
-    fetch('https://adinfinutum.profrodolfo.com.br/usuario.php',
+
+    fetch('https://hakim.profrodolfo.com.br/usuario.php',
     {
         body: formData,
         method: 'POST',
@@ -49,10 +46,11 @@
         cache: 'default'
     }
         ).then(res=> {res.json().then(data=>{
+                  
+
             if(data.erro){
                 alert('Usuário e/ou senha incorretos!');
             }else{
-                alert('Login feito com sucesso' + data.dados.nome);
                 window.location.href = "index2.html";
             }
         })})

@@ -31,5 +31,31 @@
          </div>
       </div>
     </div>
+    <script>
+    let btn = document.getElementById('buscar');
+    let campbusca = document.getElementById('txtBusca');
+    
+    btn.addEventListener('click', ()=>{ 
+    let formData = new FormData();
+    formData.append('txtBuscar', `${campbusca.value}`);
+
+    fetch('https://hakim.profrodolfo.com.br/livro.php'),
+    {
+        body: formData,
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default'
+    }
+        ).then(res=> {res.json().then(data=>{
+            if(data.erro){
+                alert('Livro não encontrado. :(');
+            }else{
+                return resposta.json();
+            }
+        })})
+    });
+    </script>
+
+
 </body>
 </html>
